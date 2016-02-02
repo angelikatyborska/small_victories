@@ -5,7 +5,7 @@
   "main": "app/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "watchify app/app.js -o app/out/app.js"
+    "watch": "watchify app/app.js -o app/out/app.js | node-sass --watch --output-style compressed assets/scss/main.scss assets/out/styles.css"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
   "devDependencies": {
     "bower": "^1.7.7",
     "browserify": "^13.0.0",
+    "node-sass": "^3.4.2",
     "watchify": "^3.7.0"
   }
 }
