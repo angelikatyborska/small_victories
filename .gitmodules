@@ -1,0 +1,3 @@
+[submodule "small_victories_rails_api"]
+	path = small_victories_rails_api
+	url = https://github.com/angelikatyborska/small_victories_rails_api.git
