@@ -4,7 +4,8 @@
   "description": "",
   "main": "app/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "watchify app/app.js -o app/out/app.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,13 @@
     "url": "https://github.com/angelikatyborska/small_victories/issues"
   },
   "homepage": "https://github.com/angelikatyborska/small_victories",
-  "devDependencies": {},
+  "dependencies": {
+    "angular": "^1.4.9",
+    "angular-route": "^1.4.9"
+  },
+  "devDependencies": {
+    "bower": "^1.7.7",
+    "browserify": "^13.0.0",
+    "watchify": "^3.7.0"
+  }
 }
