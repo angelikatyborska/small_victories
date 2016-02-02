@@ -1,0 +1,22 @@
+{
+  "name": "small_victories",
+  "homepage": "https://github.com/angelikatyborska/small_victories",
+  "authors": [
+    "Angelika Tyborska <atyborska93@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "lib/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "foundation": "~5.5.3"
+  }
+}
