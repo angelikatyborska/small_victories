@@ -21,7 +21,8 @@
 		<div class="small-2 columns">upvote downvote</div>
 		<div class="small-10 columns">
 			<div>
-				Submitted by {{ victory.user.nickname }} {{ victory.created_at }}
+				Submitted by {{ victory.user.nickname }}
+				<span am-time-ago="victory.created_at"></span>
 			</div>
 			<div>
 				{{ victory.body }}
