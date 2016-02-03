@@ -1,0 +1,36 @@
+<div ng-controller="VictoriesController">
+	<div class="victories-navigation">
+		<span ng-click="prevPage()">prev page </span>
+		<span ng-click="nextPage()">next page</span>
+	</div>
+	<div class="victories-table">
+		<div class="row" ng-repeat="victory in victories">
+			<div class="small-2 medium-1 columns">
+				<div class="counter">
+					<div class="upvote">
+						+
+					</div>
+					<div class="secondary badge">
+						0
+					</div>
+					<div class="downvote">
+						-
+					</div>
+				</div>
+			</div>
+			<div class="small-10 medium-11 large-10 xlarge-9 xxlarge-8 columns end">
+				<div class="victory-meta">
+					<small>
+						<a href="#">#{{ victory.id }}</a>
+						submitted by
+						<a href="#">{{ victory.user.nickname }}</a>
+						<span am-time-ago="victory.created_at"></span>
+					</small>
+				</div>
+				<div class="victory-body">
+					{{ victory.body }}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

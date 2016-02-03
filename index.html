@@ -20,45 +20,14 @@
 	<div class="top-bar-left">
 		<ul class="vertical medium-horizontal menu" data-dropdown-menu>
 			<li class="menu-text show-for-medium"><h1 class="site-title">Small Victories</h1></li>
-			<li><a href="#">Latest</a></li>
-			<li><a href="#">Best</a></li>
-			<li><a href="#">Worst</a></li>
+			<li><a href="#/latest">Latest</a></li>
+			<li><a href="#/best">Best</a></li>
+			<li><a href="#/worst">Worst</a></li>
 		</ul>
 	</div>
 </div>
 
-<div ng-controller="VictoriesController">
-	<div class="victories-table">
-		<div class="row" ng-repeat="victory in victories">
-			<div class="small-2 medium-1 columns">
-				<div class="counter">
-					<div class="upvote">
-						+
-					</div>
-					<div class="secondary badge">
-						0
-					</div>
-					<div class="downvote">
-						-
-					</div>
-				</div>
-			</div>
-			<div class="small-10 medium-11 large-10 xlarge-9 xxlarge-8 columns end">
-				<div class="victory-meta">
-					<small>
-						<a href="#">#{{ victory.id }}</a>
-						submitted by
-						<a href="#">{{ victory.user.nickname }}</a>
-						<span am-time-ago="victory.created_at"></span>
-					</small>
-				</div>
-				<div class="victory-body">
-					{{ victory.body }}
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+<div ng-view></div>
 
 <script src="build/vendor.js"></script>
 <script src="build/app.js"></script>
