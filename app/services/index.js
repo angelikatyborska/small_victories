@@ -1,4 +1,4 @@
 'use strict';
 var app = angular.module('smallVictories');
 
-app.factory('VictoriesData', require('./VictoriesData'));
+app.factory('Victory', require('./Victory'));

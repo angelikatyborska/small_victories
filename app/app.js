@@ -1,9 +1,13 @@
 'use strict';
 
-require('moment');
-var angularMoment = require('angular-moment');
 var angular = require('angular');
-var app = angular.module('smallVictories', ['angularMoment']);
+
+require('moment');
+require('angular-moment');
+require('angular-resource');
+
+var app = angular.module('smallVictories', ['ngResource', 'angularMoment']);
+
 app.run(function(amMoment) {
   amMoment.changeLocale('en');
 });

@@ -1,4 +1,4 @@
 'use strict';
 var app = angular.module('smallVictories');
 
-app.controller('VictoriesController', ['$scope', 'VictoriesData', require('./VictoriesController')]);
+app.controller('VictoriesController', ['$scope', 'Victory', require('./VictoriesController')]);

@@ -2,30 +2,30 @@ $victory-table-row-bg-even: $lighter-gray;
 $victory-table-row-bg-odd: $white;
 
 .victories-table {
-	max-width: $global-width;
-	margin: $spacing-medium;
-	border: rem-calc(1) solid $light-gray;
+  max-width: $global-width;
+  margin: $spacing-medium;
+  border: rem-calc(1) solid $light-gray;
 
-	@media #{$xlarge-up} {
-		margin-right: auto;
-		margin-left: auto;
-	}
+  @media #{$xlarge-up} {
+    margin-right: auto;
+    margin-left: auto;
+  }
 
-	.row {
-		padding: $spacing-tiny 0;
+  .row {
+    padding: $spacing-tiny 0;
 
-		background-color: $victory-table-row-bg-odd;
+    background-color: $victory-table-row-bg-odd;
 
-		&:nth-child(2n) {
-			background-color: $victory-table-row-bg-even;
-		}
-	}
+    &:nth-child(2n) {
+      background-color: $victory-table-row-bg-even;
+    }
+  }
 
-	.victory-meta {
-		color: $dark-gray;
-	}
+  .victory-meta {
+    color: $dark-gray;
+  }
 
-	.victory-body {
-		margin-bottom: $spacing-small;
-	}
+  .victory-body {
+    margin-bottom: $spacing-small;
+  }
 }
