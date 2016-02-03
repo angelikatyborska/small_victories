@@ -2,3 +2,7 @@
 'node_modules/foundation-sites/scss/foundation';
 
 @include foundation-everything();
+
+@import 'utils/base',
+'utils/variables',
+'components/victories_table';

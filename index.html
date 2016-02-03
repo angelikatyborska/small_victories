@@ -1,31 +1,60 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="smallVictories">
 <head>
 	<meta charset="UTF-8">
 	<title>Small Victories</title>
 	<link rel="stylesheet" href="build/styles.css" />
 </head>
-<body ng-app="smallVictories">
-<div class="top-bar">
+<body ng-cloak>
+
+<div class="title-bar" data-responsive-toggle="main-nav" data-hide-for="medium">
+	<div class="title-bar-left">
+		<span class="title-bar-title"><h1 class="site-title">Small Victories</h1></span>
+	</div>
+	<div class="title-bar-right">
+		<button class="menu-icon" type="button" data-toggle></button>
+	</div>
+</div>
+
+<div class="top-bar" id="main-nav">
 	<div class="top-bar-left">
-		<ul class="dropdown menu" data-dropdown-menu>
-			<li class="menu-text">Small Victories</li>
+		<ul class="vertical medium-horizontal menu" data-dropdown-menu>
+			<li class="menu-text show-for-medium"><h1 class="site-title">Small Victories</h1></li>
 			<li><a href="#">Latest</a></li>
 			<li><a href="#">Best</a></li>
 			<li><a href="#">Worst</a></li>
 		</ul>
 	</div>
 </div>
+
 <div ng-controller="VictoriesController">
-	<div class="row" ng-repeat="victory in victories">
-		<div class="small-2 columns">upvote downvote</div>
-		<div class="small-10 columns">
-			<div>
-				Submitted by {{ victory.user.nickname }}
-				<span am-time-ago="victory.created_at"></span>
+	<div class="victories-table">
+		<div class="row" ng-repeat="victory in victories">
+			<div class="small-2 medium-1 columns">
+				<div class="counter">
+					<div class="upvote">
+						+
+					</div>
+					<div class="secondary badge">
+						0
+					</div>
+					<div class="downvote">
+						-
+					</div>
+				</div>
 			</div>
-			<div>
-				{{ victory.body }}
+			<div class="small-10 medium-11 large-10 xlarge-9 xxlarge-8 columns end">
+				<div class="victory-meta">
+					<small>
+						<a href="#">#{{ victory.id }}</a>
+						submitted by
+						<a href="#">{{ victory.user.nickname }}</a>
+						<span am-time-ago="victory.created_at"></span>
+					</small>
+				</div>
+				<div class="victory-body">
+					{{ victory.body }}
+				</div>
 			</div>
 		</div>
 	</div>
