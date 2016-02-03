@@ -5,7 +5,7 @@
   "main": "app/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "watchify app/app.js -o app/out/app.js | node-sass --watch --output-style compressed assets/scss/main.scss assets/out/styles.css"
+    "watch": "watchify app/app.js -o build/app.js | watchify assets/vendor.js -o build/vendor.js | node-sass --watch --output-style compressed assets/scss/main.scss build/styles.css"
   },
   "repository": {
     "type": "git",
@@ -17,13 +17,28 @@
     "url": "https://github.com/angelikatyborska/small_victories/issues"
   },
   "homepage": "https://github.com/angelikatyborska/small_victories",
+  "browser": {
+    "jquery": "./node_modules/jquery/dist/jquery.js",
+    "foundation": "./node_modules/foundation-sites/js/foundation.js"
+  },
+  "browserify-shim": {
+    "jquery": "$",
+    "foundation": "foundation"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
   "dependencies": {
     "angular": "^1.4.9",
-    "angular-route": "^1.4.9"
+    "angular-route": "^1.4.9",
+    "foundation-sites": "^6.1.2",
+    "jquery": "^2.2.0"
   },
   "devDependencies": {
-    "bower": "^1.7.7",
     "browserify": "^13.0.0",
+    "browserify-shim": "^3.8.12",
     "node-sass": "^3.4.2",
     "watchify": "^3.7.0"
   }

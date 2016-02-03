@@ -1,1 +1,4 @@
-@import '../lib/foundation/scss/foundation';
+@import 'foundation_settings',
+'node_modules/foundation-sites/scss/foundation';
+
+@include foundation-everything();

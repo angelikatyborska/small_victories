@@ -26,5 +26,5 @@ Temporary Items
 .idea
 
 node_modules
-app/out
-assets/out
+build
+*.log
