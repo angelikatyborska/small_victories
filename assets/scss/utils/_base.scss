@@ -12,3 +12,35 @@
   font-size: inherit;
   font-weight: bold;
 }
+
+.pagination-first {
+  a:before {
+    content: '\0000ab';
+    display: inline-block;
+    margin-left: 0;
+  }
+}
+
+.pagination-previous {
+  a:before {
+    content: '\002039';
+    display: inline-block;
+    margin-left: 0;
+  }
+}
+
+.pagination-next {
+  a:after {
+    content: '\00203A';
+    display: inline-block;
+    margin-left: 0;
+  }
+}
+
+.pagination-last {
+  a:after {
+    content: '\0000bb';
+    display: inline-block;
+    margin-left: 0;
+  }
+}

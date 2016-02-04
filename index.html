@@ -1,35 +1,37 @@
 <!doctype html>
 <html lang="en" ng-app="smallVictories">
 <head>
-	<meta charset="UTF-8">
-	<title>Small Victories</title>
-	<link rel="stylesheet" href="build/styles.css" />
+  <meta charset="UTF-8">
+  <title>Small Victories</title>
+
+  <link rel="stylesheet" href="build/styles.css" />
+
+  <script src="build/vendor.js"></script>
+  <script src="build/app.js"></script>
+
 </head>
 <body ng-cloak>
 
 <div class="title-bar" data-responsive-toggle="main-nav" data-hide-for="medium">
-	<div class="title-bar-left">
-		<span class="title-bar-title"><h1 class="site-title">Small Victories</h1></span>
-	</div>
-	<div class="title-bar-right">
-		<button class="menu-icon" type="button" data-toggle></button>
-	</div>
+  <div class="title-bar-left">
+    <span class="title-bar-title"><h1 class="site-title">Small Victories</h1></span>
+  </div>
+  <div class="title-bar-right">
+    <button class="menu-icon" type="button" data-toggle></button>
+  </div>
 </div>
 
 <div class="top-bar" id="main-nav">
-	<div class="top-bar-left">
-		<ul class="vertical medium-horizontal menu" data-dropdown-menu>
-			<li class="menu-text show-for-medium"><h1 class="site-title">Small Victories</h1></li>
-			<li><a href="#/latest">Latest</a></li>
-			<li><a href="#/best">Best</a></li>
-			<li><a href="#/worst">Worst</a></li>
-		</ul>
-	</div>
+  <div class="top-bar-left">
+    <ul class="vertical medium-horizontal menu" data-dropdown-menu>
+      <li class="menu-text show-for-medium"><h1 class="site-title">Small Victories</h1></li>
+      <li><a href="#/latest">Latest</a></li>
+      <li><a href="#/best">Best</a></li>
+    </ul>
+  </div>
 </div>
 
 <div ng-view></div>
 
-<script src="build/vendor.js"></script>
-<script src="build/app.js"></script>
 </body>
 </html>

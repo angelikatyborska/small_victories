@@ -1,0 +1,77 @@
+<!--<div class="small-12 columns">-->
+  <!--<ul class="pagination float-right" role="navigation" aria-label="Pagination">-->
+    <!--<li class="pagination-previous">-->
+      <!--<a ng-click="setPage(currentPage - 1)" ng-class="{disabled: currentPage === 1 }">Previous <span class="show-for-sr">page</span></a>-->
+    <!--</li>-->
+    <!--<li ng-show="currentPage > 2">-->
+      <!--<a ng-click="setPage(currentPage - 2)" aria-label="Page {{ currentPage - 2 }}">{{ currentPage - 2 }}</a>-->
+    <!--</li>-->
+    <!--<li ng-show="currentPage > 1">-->
+      <!--<a ng-click="setPage(currentPage - 1)" aria-label="Page {{ currentPage - 1 }}">{{ currentPage - 1 }}</a>-->
+    <!--</li>-->
+    <!--<li class="current"><span class="show-for-sr">You're on page </span>{{ currentPage }}</li>-->
+    <!--<li ng-show="(lastPage - currentPage) > 0">-->
+      <!--<a ng-click="setPage(currentPage + 1)" aria-label="Page {{ currentPage + 1 }}">{{ currentPage + 1 }}</a>-->
+    <!--</li>-->
+    <!--<li ng-show="(lastPage - currentPage) > 1">-->
+      <!--<a ng-click="setPage(currentPage + 2)" aria-label="Page {{ currentPage + 2 }}">{{ currentPage + 2 }}</a>-->
+    <!--</li>-->
+    <!--<li class="pagination-next">-->
+      <!--<a ng-click="setPage(currentPage + 1)" ng-class="{disabled: currentPage === lastPage}" aria-label="Next page">Next <span class="show-for-sr">page</span></a>-->
+    <!--</li>-->
+  <!--</ul>-->
+<!--</div>-->
+
+<div class="small-12 columns">
+  <ul class="pagination float-right" role="navigation" aria-label="Pagination">
+    <li class="pagination-first">
+      <a
+        ng-click="setPage(1)"
+        ng-class="{ disabled: currentPage === 1 }"
+        aria-label="First page"
+      >
+        <span class="show-for-sr">First page</span>
+      </a>
+    </li>
+
+    <li class="pagination-previous">
+      <a
+        ng-click="setPage(currentPage - 1)"
+        ng-class="{ disabled: currentPage === 1 }"
+        aria-label="Previous page"
+      >
+        <span class="show-for-sr">Previous page</span>
+      </a>
+    </li>
+
+    <li ng-repeat="page in pagination">
+      <a
+        ng-class="{ 'disabled current': page === currentPage }"
+        ng-click="setPage(page)"
+        aria-label="Page {{ page }}"
+      >
+        {{ page }}
+      </a>
+    </li>
+
+    <li class="pagination-next">
+    <a
+      ng-click="setPage(currentPage + 1)"
+      ng-class="{ disabled: currentPage === lastPage }"
+      aria-label="Next page"
+    >
+      <span class="show-for-sr">Next page</span>
+    </a>
+  </li>
+
+    <li class="pagination-last">
+      <a
+        ng-click="setPage(lastPage)"
+        ng-class="{ disabled: currentPage === lastPage }"
+        aria-label="Last page"
+      >
+        <span class="show-for-sr">Last page</span>
+      </a>
+    </li>
+  </ul>
+</div>

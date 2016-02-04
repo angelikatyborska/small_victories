@@ -28,4 +28,16 @@ $victory-table-row-bg-odd: $white;
   .victory-body {
     margin-bottom: $spacing-small;
   }
+
+  .pagination {
+    margin-bottom: 0;
+
+    a.disabled {
+      pointer-events: none;
+
+      &.current {
+        color: $white;
+      }
+    }
+  }
 }

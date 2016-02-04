@@ -19,23 +19,15 @@ require('./controllers');
 app.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
-    when('/latest/:page', {
-      templateUrl: 'app/partials/victories-table.html',
+    when('/:sort/:page', {
+      templateUrl: 'app/partials/victoriesTable.html',
       controller: 'VictoriesController'
     }).
-    when('/latest', {
-      redirectTo: '/latest/1'
-    }).
-    when('/best', {
-      templateUrl: 'app/partials/victories-table.html',
-      controller: 'VictoriesController'
-    }).
-    when('/worst', {
-      templateUrl: 'app/partials/victories-table.html',
-      controller: 'VictoriesController'
+    when('/:sort', {
+      redirectTo: ':sort/1'
     }).
     otherwise({
-      redirectTo: '/latest'
+      redirectTo: '/latest/1'
     });
   }
 ]);
