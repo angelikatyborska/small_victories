@@ -1,0 +1,13 @@
+<div>
+  <ul class="vertical medium-horizontal menu" data-dropdown-menu="">
+    <li ng-hide="nickname === undefined">
+      <a href="#/">Hello, {{ nickname }}!</a>
+    </li>
+    <li ng-show="nickname === undefined">
+      <a ng-click="handleSignInLinkClick()">Log In</a>
+    </li>
+    <li ng-hide="nickname === undefined">
+      <a ng-click="handleSignOutButtonClick()">Log out</a>
+    </li>
+  </ul>
+</div>

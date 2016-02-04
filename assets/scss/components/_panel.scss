@@ -1,0 +1,10 @@
+.panel {
+  max-width: $global-width;
+  margin: $spacing-medium;
+  border: rem-calc(1) solid $light-gray;
+
+  @media #{$xlarge-up} {
+    margin-right: auto;
+    margin-left: auto;
+  }
+}

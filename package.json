@@ -19,7 +19,9 @@
   "homepage": "https://github.com/angelikatyborska/small_victories",
   "browser": {
     "jquery": "./node_modules/jquery/dist/jquery.js",
-    "foundation": "./node_modules/foundation-sites/js/foundation.js"
+    "foundation": "./node_modules/foundation-sites/js/foundation.js",
+    "angular-cookies": "./node_modules/angular-cookies/angular-cookies.js",
+    "ng-token-auth": "./node_modules/ng-token-auth/dist/ng-token-auth.js"
   },
   "browserify-shim": {
     "jquery": "$",
@@ -32,12 +34,15 @@
   },
   "dependencies": {
     "angular": "^1.4.9",
+    "angular-cookie": "^4.0.10",
+    "angular-cookies": "^1.4.9",
     "angular-moment": "^1.0.0-beta.3",
     "angular-resource": "^1.4.9",
     "angular-route": "^1.4.9",
     "foundation-sites": "^6.1.2",
     "jquery": "^2.2.0",
-    "moment": "^2.11.1"
+    "moment": "^2.11.1",
+    "ng-token-auth": "0.0.24-beta1"
   },
   "devDependencies": {
     "browserify": "^13.0.0",

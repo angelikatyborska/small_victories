@@ -10,7 +10,7 @@
   <script src="build/app.js"></script>
 
 </head>
-<body ng-cloak>
+<body ng-cloak ng-controller="SessionsController">
 
 <div class="title-bar" data-responsive-toggle="main-nav" data-hide-for="medium">
   <div class="title-bar-left">
@@ -29,6 +29,14 @@
       <li><a href="#/best">Best</a></li>
     </ul>
   </div>
+
+  <div class="top-bar-right">
+    <div ng-include="'app/partials/topbarUserLinks.html'"></div>
+  </div>
+</div>
+
+<div ng-show="showLoginForm">
+  <div ng-include="'app/partials/loginForm.html'"></div>
 </div>
 
 <div ng-view></div>

@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function($scope, $route, $routeParams, Victory) {
+module.exports = function($scope, $route, $routeParams, $location, Victory) {
   $scope.perPage = 10;
 
   $scope.setPage = function(n) {
@@ -8,16 +8,17 @@ module.exports = function($scope, $route, $routeParams, Victory) {
   };
 
   $scope.setSort = function() {
-    switch ($routeParams.sort) {
-      case "latest":
-        $scope.sort = '-created_at';
-        break;
-      case "best":
-        // TODO: change to vote count when it's implemented in the api
-        $scope.sort = '+body';
-        break;
-      default:
-        $scope.sort = '-created_at';
+    console.log($location.path());
+
+    if ($location.path().match(/latest/) !== null) {
+      $scope.sort = '-created_at';
+    }
+    else if ($location.path().match(/best/) !== null) {
+      // TODO: change to vote count when it's implemented in the api
+      $scope.sort = '+body';
+    }
+    else {
+      $scope.sort = '-created_at';
     }
   };
 
