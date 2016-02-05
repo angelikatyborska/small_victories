@@ -2,11 +2,15 @@
 var app = angular.module('smallVictories');
 
 app.controller(
-  'VictoriesController',
-  ['$scope', '$route', '$routeParams', '$location', 'Victory', require('./VictoriesController')]
-);
+    'VictoriesController',
+    ['$scope', '$route', '$routeParams', '$location', 'Victory', require('./VictoriesController')]
+  )
+  .controller(
+    'SessionsController',
+    ['$scope', '$rootScope', '$location', 'Auth', 'User', require('./SessionsController')]
+  )
+  .controller(
+    'VotesController',
+    ['$scope', 'Vote', 'Victory', require('./VotesController')]
+  );
 
-app.controller(
-  'SessionsController',
-  ['$scope', '$rootScope', 'Auth', require('./SessionsController')]
-);

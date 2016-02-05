@@ -1,17 +1,18 @@
 'use strict';
 
-module.exports = function($scope, $rootScope, Auth) {
+module.exports = function($scope, $rootScope, $location, Auth, User) {
   $scope.loginForm = {};
+  $scope.currentUser = null;
 
-  $scope.handleSignInLinkClick = function() {
-    $scope.showLoginForm = true;
+  $scope.setUserAfterAuth = function(user) {
+    $scope.currentUser = User.get({ nickname: user.nickname });
   };
 
   $scope.handleSignInButtonClick = function() {
     Auth.login($scope.loginForm,
       function success() {
-        $scope.showLoginForm = false;
         // TODO: show something to the user
+        $location.path("/");
       },
       function error() {
         // TODO: render form with errrors
@@ -19,15 +20,18 @@ module.exports = function($scope, $rootScope, Auth) {
   };
 
   $scope.handleSignOutButtonClick = function() {
-    Auth.logout(function() {
-      $scope.nickname = undefined;
-      $scope.showLoginForm = false;
-    });
+    Auth.logout();
   };
 
-  // TODO: delete this event
-  // TODO: think of a better way to store and identify current user
   $rootScope.$on('auth:login-success', function(ev, user) {
-    $scope.nickname = user.nickname
+    $scope.setUserAfterAuth(user);
+  });
+
+  $rootScope.$on('auth:logout-success', function(ev, user) {
+    $scope.currentUser = null;
+  });
+
+  $rootScope.$on('auth:validation-success', function(ev, user) {
+    $scope.setUserAfterAuth(user);
   });
 };

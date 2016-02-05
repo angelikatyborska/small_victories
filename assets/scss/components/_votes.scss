@@ -1,0 +1,19 @@
+.votes {
+  text-align: center;
+}
+
+.vote {
+  cursor: pointer;
+}
+
+.voted {
+  cursor: default;
+
+  &.upvote {
+    color: $success-color;
+  }
+
+  &.downvote {
+    color: $alert-color;
+  }
+}

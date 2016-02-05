@@ -1,13 +1,13 @@
 <div>
   <ul class="vertical medium-horizontal menu" data-dropdown-menu="">
-    <li ng-hide="nickname === undefined">
-      <a href="#/">Hello, {{ nickname }}!</a>
+    <li ng-hide="currentUser === null">
+      <a ng-href="#/">Hello, {{ currentUser.nickname }}!</a>
     </li>
-    <li ng-show="nickname === undefined">
-      <a ng-click="handleSignInLinkClick()">Log In</a>
+    <li ng-show="currentUser === null">
+      <a ng-href="#/login">Sign In</a>
     </li>
-    <li ng-hide="nickname === undefined">
-      <a ng-click="handleSignOutButtonClick()">Log out</a>
+    <li ng-hide="currentUser === null">
+      <a ng-click="handleSignOutButtonClick()">Sign out</a>
     </li>
   </ul>
 </div>

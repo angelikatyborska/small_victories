@@ -1,11 +1,17 @@
+$fa-font-path: '../assets/fonts';
+
 @import 'foundation_settings',
-'node_modules/foundation-sites/scss/foundation';
+'node_modules/foundation-sites/scss/foundation',
+'node_modules/font-awesome/scss/font-awesome';
+;
 
 @include foundation-everything();
 
 @import 'utils/base',
 'utils/variables',
 
+'components/pagination',
 'components/panel',
+'components/votes',
 'components/login',
 'components/victories_table';

@@ -1,13 +1,7 @@
 'use strict';
 
 module.exports = function($scope, $route, $routeParams, $location, Victory) {
-  $scope.perPage = 10;
-
-  $scope.setPage = function(n) {
-    $route.updateParams({ page: n });
-  };
-
-  $scope.setSort = function() {
+  var setSort = function() {
     console.log($location.path());
 
     if ($location.path().match(/latest/) !== null) {
@@ -22,7 +16,7 @@ module.exports = function($scope, $route, $routeParams, $location, Victory) {
     }
   };
 
-  $scope.setPagination = function() {
+  var setPagination = function() {
     var pagesInPagination = 5;
 
     $scope.pagination = [];
@@ -52,13 +46,13 @@ module.exports = function($scope, $route, $routeParams, $location, Victory) {
     }
   };
 
-  $scope.setLastPage = function(headersGetter) {
+  var setLastPage = function(headersGetter) {
     var headers = headersGetter();
     var totalCount = headers['x-total-count'];
     $scope.lastPage = Math.ceil(totalCount / $scope.perPage);
   };
 
-  $scope.redirectToValidPage = function() {
+  var redirectToValidPage = function() {
     if ($scope.currentPage < 1) {
       $scope.setPage(1);
     }
@@ -67,16 +61,35 @@ module.exports = function($scope, $route, $routeParams, $location, Victory) {
     }
   };
 
+  $scope.perPage = 10;
+
+  $scope.setPage = function(n) {
+    $route.updateParams({ page: n });
+  };
+
+  $scope.reloadVictory = function(victory) {
+   var index = $scope.victories.findIndex(function(element) { return element.id === victory.id; });
+
+    console.log($scope.victories);
+    console.log('id ' + victory.id);
+    console.log('index ' + index);
+    $scope.victories[index] = Victory.get({ id: victory.id });
+  };
+
+
+  $scope.getVictories = function() {
+    $scope.victories = Victory.query(
+      { per_page: $scope.perPage, page: $scope.currentPage, sort: $scope.sort },
+      function(data, headersGetter) {
+        setLastPage(headersGetter);
+        redirectToValidPage();
+        setPagination();
+      }
+    );
+  };
+
   $scope.currentPage = parseInt($route.current.params.page);
 
-  $scope.setSort();
-
-  $scope.victories = Victory.query(
-    { per_page: $scope.perPage, page: $scope.currentPage, sort: $scope.sort },
-    function(data, headersGetter) {
-      $scope.setLastPage(headersGetter);
-      $scope.redirectToValidPage();
-      $scope.setPagination();
-    }
-  );
+  setSort();
+  $scope.getVictories();
 };
