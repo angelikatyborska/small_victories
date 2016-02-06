@@ -65,10 +65,6 @@ module.exports = function($scope, $route, $routeParams, $location, Victory) {
 
   $scope.reloadVictory = function(victory) {
     var index = $scope.victories.findIndex(function(element) { return element.id === victory.id; });
-
-    console.log($scope.victories);
-    console.log('id ' + victory.id);
-    console.log('index ' + index);
     $scope.victories[index] = Victory.get({ id: victory.id });
   };
 
@@ -92,7 +88,7 @@ module.exports = function($scope, $route, $routeParams, $location, Victory) {
     )
   };
 
-  $scope.perPage = 10;
+  $scope.perPage = $scope.perPage || 10;
   $scope.errors = [];
   $scope.currentPage = parseInt($route.current.params.page);
 

@@ -6,7 +6,8 @@ app.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider
       .when('/', {
-        redirectTo: 'latest/1'
+        templateUrl: 'app/partials/homepage.html',
+        controller: 'HomepageController'
       })
       .when('/latest/:page', {
         templateUrl: 'app/partials/victoriesTable.html',
@@ -24,20 +25,18 @@ app.config(['$routeProvider',
       })
       .when('/add', {
         templateUrl: 'app/partials/victoryForm.html',
-        controller: 'NewVictoryController'
+        controller: 'VictoryController'
       })
       .when('/sign_in', {
         templateUrl: 'app/partials/loginForm.html',
         controller: 'SessionsController'
       })
+      .when('/victory/:id', {
+        templateUrl: 'app/partials/victory.html',
+        controller: 'VictoryController'
+      })
       .otherwise({
-        redirectTo: '/latest/1'
+        redirectTo: '/'
       });
   }
 ]);
-
-app.config(function($authProvider) {
-  $authProvider.configure({
-    apiUrl: 'http://localhost:3000/api/v1'
-  });
-});

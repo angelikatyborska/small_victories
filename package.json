@@ -5,7 +5,7 @@
   "main": "app/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "watchify app/app.js -o build/app.js | watchify assets/vendor.js -o build/vendor.js | node-sass --watch --output-style compressed assets/scss/main.scss build/styles.css"
+    "watch": "watchify app/app.js -o build/app.js -dv | watchify assets/vendor.js -o build/vendor.js | node-sass --watch --output-style compressed assets/scss/main.scss build/styles.css"
   },
   "repository": {
     "type": "git",

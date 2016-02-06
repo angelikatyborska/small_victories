@@ -6,8 +6,8 @@ app.controller(
     ['$scope', '$route', '$routeParams', '$location', 'Victory', require('./VictoriesTableController')]
   )
   .controller(
-    'NewVictoryController',
-    ['$scope', '$location', 'Victory', require('./NewVictoryController')]
+    'VictoryController',
+    ['$scope', '$route', '$location', 'Victory', require('./VictoryController')]
   )
   .controller(
     'SessionsController',
@@ -16,4 +16,8 @@ app.controller(
   .controller(
     'VotesController',
     ['$scope', '$location', 'Vote', require('./VotesController')]
+  )
+  .controller(
+    'HomepageController',
+    ['$scope', require('./HomepageController')]
   );

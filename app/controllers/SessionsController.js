@@ -48,4 +48,8 @@ module.exports = function($scope, $rootScope, $location, Auth, User) {
   $rootScope.$on('auth:validation-success', function(ev, user) {
     $scope.setUserAfterAuth(user);
   });
+
+  $rootScope.$on('auth:validation-error', function(ev, user) {
+    console.log('error');
+  })
 };

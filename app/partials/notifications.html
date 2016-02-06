@@ -1,0 +1,27 @@
+<div ng-show="errors.length > 0 || notifications.length > 0" class="panel errors">
+  <div class="row">
+    <div class="small-12 columns">
+      <div class="callout alert" ng-repeat="error in errors">
+        {{ error }}
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 columns">
+      <div class="callout success" data-closable="" ng-repeat="notification in notifications">
+        {{ notification }}
+
+        <button
+          class="close-button"
+          aria-label="Dismiss alert"
+          type="button"
+          data-close=""
+          ng-click="dismissNotification(notification)"
+        >
+          <span aria-hidden="true">&#215;</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
