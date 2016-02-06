@@ -10,17 +10,21 @@ app.config(['$routeProvider',
       })
       .when('/latest/:page', {
         templateUrl: 'app/partials/victoriesTable.html',
-        controller: 'VictoriesController'
+        controller: 'VictoriesTableController'
       })
       .when('/best/:page', {
         templateUrl: 'app/partials/victoriesTable.html',
-        controller: 'VictoriesController'
+        controller: 'VictoriesTableController'
       })
       .when('/latest', {
         redirectTo: 'latest/1'
       })
       .when('/best', {
         redirectTo: 'best/1'
+      })
+      .when('/add', {
+        templateUrl: 'app/partials/victoryForm.html',
+        controller: 'NewVictoryController'
       })
       .when('/sign_in', {
         templateUrl: 'app/partials/loginForm.html',

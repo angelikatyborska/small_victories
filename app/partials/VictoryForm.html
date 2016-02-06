@@ -1,5 +1,5 @@
 <div class="form panel">
-  <form ng-submit="handleSignInButtonClick()" role="form">
+  <form ng-submit="handleSaveButtonClick()" role="form">
 
     <div ng-show="errors.length > 0" class="errors row">
       <div class="small-12 columns">
@@ -12,22 +12,15 @@
     <div class="row form-inputs">
       <div class="small-12 columns">
         <label>
-          Email
-          <input type="email" name="email" ng-model="loginForm.email" required="required"/>
-        </label>
-      </div>
-
-      <div class="small-12 columns">
-        <label>
-          Password
-          <input type="password" name="password" ng-model="loginForm.password" required="required"/>
+          Describe your small victory:
+          <textarea rows="10" name="body" ng-model="victoryForm.body"></textarea>
         </label>
       </div>
     </div>
 
     <div class="row form-actions">
       <div class="small-12 columns">
-        <button type="submit" class="button primary">Sign in</button>
+        <button type="submit" class="button primary">Save</button>
       </div>
     </div>
   </form>

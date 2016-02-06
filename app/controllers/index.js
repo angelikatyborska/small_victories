@@ -2,8 +2,12 @@
 var app = angular.module('smallVictories');
 
 app.controller(
-    'VictoriesController',
-    ['$scope', '$route', '$routeParams', '$location', 'Victory', require('./VictoriesController')]
+    'VictoriesTableController',
+    ['$scope', '$route', '$routeParams', '$location', 'Victory', require('./VictoriesTableController')]
+  )
+  .controller(
+    'NewVictoryController',
+    ['$scope', '$location', 'Victory', require('./NewVictoryController')]
   )
   .controller(
     'SessionsController',
@@ -13,4 +17,3 @@ app.controller(
     'VotesController',
     ['$scope', '$location', 'Vote', require('./VotesController')]
   );
-
