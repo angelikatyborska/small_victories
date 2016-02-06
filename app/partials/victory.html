@@ -1,42 +1,48 @@
-<div>
+<div ng-cloak="">
   <div ng-include="'app/partials/notifications.html'"></div>
 
   <div ng-show="victory !== undefined" class="victories-table panel">
 
-   <div class="row">
-    <div class="small-10 medium-11 large-10 xlarge-9 xxlarge-8 columns end">
+    <div class="row">
+      <div class="small-12 columns end">
 
-      <div class="votes" ng-controller="VotesController">
-        <div ng-click="upvote(victory)" class="vote upvote" ng-class="{ voted: hasUpvoted(victory) }">
-          <span class="show-for-sr">Upvote</span>
-          <i class="fa fa-chevron-up"></i>
+        <div class="votes" ng-controller="VotesController">
+          <div ng-click="upvote(victory)" class="vote upvote" ng-class="{ voted: hasUpvoted(victory) }">
+            <span class="show-for-sr">Upvote</span>
+            <i class="fa fa-chevron-up"></i>
+          </div>
+          <div class="count">
+            {{ victory.rating }}
+          </div>
+          <div ng-click="downvote(victory)" class="vote downvote" ng-class="{ voted: hasDownvoted(victory) }">
+            <span class="show-for-sr">Downvote</span>
+            <i class="fa fa-chevron-down"></i>
+          </div>
         </div>
-        <div class="count">
-          {{ victory.rating }}
-        </div>
-        <div ng-click="downvote(victory)" class="vote downvote" ng-class="{ voted: hasDownvoted(victory) }">
-          <span class="show-for-sr">Downvote</span>
-          <i class="fa fa-chevron-down"></i>
-        </div>
-      </div>
 
-      <div class="victory">
-        <div class="victory-meta">
-          <small>
-            <a href="#">#{{ victory.id }}</a>
+        <div class="victory">
+          <div class="victory-meta">
+            <small>
+              <a href="#">#{{ victory.id }}</a>
               <span class="nowrap">
                 submitted by
                 <a href="#">{{ victory.user.nickname }}</a>
               </span>
-            <span class="nowrap" am-time-ago="victory.created_at"></span>
-          </small>
-        </div>
-        <div class="victory-body">
-          {{ victory.body }}
-        </div>
-      </div>
+              <span class="nowrap" am-time-ago="victory.created_at"></span>
+            </small>
 
+            <div ng-show="currentUser.id === victory.user.id" class="float-right">
+              <button ng-click="handleDeleteButtonClick(victory)">
+                <i class="fa fa-trash"></i>
+              </button>
+            </div>
+          </div>
+          <div class="victory-body">
+            {{ victory.body }}
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
-</div>
 </div>
