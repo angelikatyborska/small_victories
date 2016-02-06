@@ -22,7 +22,7 @@ app.config(['$routeProvider',
       .when('/best', {
         redirectTo: 'best/1'
       })
-      .when('/login', {
+      .when('/sign_in', {
         templateUrl: 'app/partials/loginForm.html',
         controller: 'SessionsController'
       })

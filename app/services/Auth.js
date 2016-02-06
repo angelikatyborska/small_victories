@@ -5,12 +5,12 @@ module.exports = function($auth) {
     $auth.submitLogin(loginForm)
       .then(function(response) {
         if (typeof successCallback === 'function') {
-          successCallback();
+          successCallback(response);
         }
       })
       .catch(function(response) {
         if (typeof errorCallback === 'function') {
-          errorCallback();
+          errorCallback(response);
         }
       });
   }
@@ -19,12 +19,12 @@ module.exports = function($auth) {
     $auth.signOut()
       .then(function(response) {
         if (typeof successCallback === 'function') {
-          successCallback();
+          successCallback(response);
         }
       })
       .catch(function(response) {
         if (typeof errorCallback === 'function') {
-          errorCallback();
+          errorCallback(response);
         }
       });
   }

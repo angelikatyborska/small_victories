@@ -1,5 +1,14 @@
 .votes {
+  float: left;
+  margin-right: -zf-get-bp-val($grid-column-responsive-gutter, small);
+  width: rem-calc(50);
   text-align: center;
+  color: $dark-gray;
+
+  .count {
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
 }
 
 .vote {

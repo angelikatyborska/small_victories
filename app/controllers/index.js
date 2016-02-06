@@ -11,6 +11,6 @@ app.controller(
   )
   .controller(
     'VotesController',
-    ['$scope', 'Vote', 'Victory', require('./VotesController')]
+    ['$scope', '$location', 'Vote', require('./VotesController')]
   );
 

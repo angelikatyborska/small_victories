@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function($scope, Vote, Victory) {
+module.exports = function($scope, $location, Vote) {
   var hasUpvoted = false;
   var hasDownvoted = false;
 
@@ -38,7 +38,7 @@ module.exports = function($scope, Vote, Victory) {
 
           Vote.update( { vote: { id: vote.id, value: value, user_id: $scope.currentUser.id, victory_id: victory.id } },
             function () {
-              victory.votes_count += (value - old_value);
+              victory.rating += (value - old_value);
               vote.value = value;
             });
         }
@@ -46,14 +46,13 @@ module.exports = function($scope, Vote, Victory) {
       else {
         Vote.save( {vote: { value: value, user_id: $scope.currentUser.id, victory_id: victory.id } },
           function (vote) {
-            victory.votes_count += value;
+            victory.rating += value;
             $scope.currentUser.votes.push({ value: vote.value, id: vote.id, victory_id: victory.id });
           });
       }
     }
     else {
-      // TODO: handle getting users to know they need to sign in
-      console.log('cant vote when not signed in');
+      $location.path('/sign_in');
     }
   };
 

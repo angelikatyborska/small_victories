@@ -2,14 +2,11 @@
 
 module.exports = function($scope, $route, $routeParams, $location, Victory) {
   var setSort = function() {
-    console.log($location.path());
-
     if ($location.path().match(/latest/) !== null) {
       $scope.sort = '-created_at';
     }
     else if ($location.path().match(/best/) !== null) {
-      // TODO: change to vote count when it's implemented in the api
-      $scope.sort = '+body';
+      $scope.sort = '-rating';
     }
     else {
       $scope.sort = '-created_at';
@@ -34,7 +31,6 @@ module.exports = function($scope, $route, $routeParams, $location, Victory) {
     else {
       from = $scope.currentPage - 2;
       to = $scope.currentPage + 2;
-
     }
 
     $scope.pagination = [];
@@ -61,14 +57,12 @@ module.exports = function($scope, $route, $routeParams, $location, Victory) {
     }
   };
 
-  $scope.perPage = 10;
-
   $scope.setPage = function(n) {
     $route.updateParams({ page: n });
   };
 
   $scope.reloadVictory = function(victory) {
-   var index = $scope.victories.findIndex(function(element) { return element.id === victory.id; });
+    var index = $scope.victories.findIndex(function(element) { return element.id === victory.id; });
 
     console.log($scope.victories);
     console.log('id ' + victory.id);
@@ -80,14 +74,24 @@ module.exports = function($scope, $route, $routeParams, $location, Victory) {
   $scope.getVictories = function() {
     $scope.victories = Victory.query(
       { per_page: $scope.perPage, page: $scope.currentPage, sort: $scope.sort },
-      function(data, headersGetter) {
+      function success(data, headersGetter) {
         setLastPage(headersGetter);
         redirectToValidPage();
         setPagination();
+      },
+      function error(data) {
+        if (data.status === -1) {
+          $scope.errors = ['Couldn\'t connect to the server.'];
+        }
+        else {
+          $scope.errors = ['Unknown error.'];
+        }
       }
-    );
+    )
   };
 
+  $scope.perPage = 10;
+  $scope.errors = [];
   $scope.currentPage = parseInt($route.current.params.page);
 
   setSort();

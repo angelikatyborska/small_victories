@@ -2,9 +2,14 @@
   max-width: $global-width;
   margin: $spacing-medium;
   border: rem-calc(1) solid $light-gray;
+  margin-right: auto;
+  margin-left: auto;
 
-  @media #{$xlarge-up} {
-    margin-right: auto;
-    margin-left: auto;
+  .callout {
+    margin-top: 1rem;
+  }
+
+  .panel-content {
+    margin: 1rem 0;
   }
 }
