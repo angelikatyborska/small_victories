@@ -12,6 +12,10 @@ $victory-table-row-bg-odd: $white;
     }
   }
 
+  .victory {
+    float: left;
+    width: calc(100% - #{$votes-total-width});
+  }
   .victory-meta {
     color: $dark-gray;
   }
@@ -22,6 +26,12 @@ $victory-table-row-bg-odd: $white;
 
   .pagination {
     margin-bottom: 0;
+    text-align: center;
+
+    @media #{$medium-up} {
+      float: right;
+      text-align: left
+    }
 
     a.disabled {
       pointer-events: none;
@@ -29,6 +39,19 @@ $victory-table-row-bg-odd: $white;
       &.current {
         color: $white;
       }
+    }
+  }
+
+  .victories-table-header {
+    text-align: center;
+
+    @media #{$medium-up} {
+      text-align: left
+    }
+
+    h2 {
+      margin-bottom: 0;
+      font-size: 1.3rem;
     }
   }
 }

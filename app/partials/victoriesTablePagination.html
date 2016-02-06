@@ -1,29 +1,5 @@
-<!--<div class="small-12 columns">-->
-  <!--<ul class="pagination float-right" role="navigation" aria-label="Pagination">-->
-    <!--<li class="pagination-previous">-->
-      <!--<a ng-click="setPage(currentPage - 1)" ng-class="{disabled: currentPage === 1 }">Previous <span class="show-for-sr">page</span></a>-->
-    <!--</li>-->
-    <!--<li ng-show="currentPage > 2">-->
-      <!--<a ng-click="setPage(currentPage - 2)" aria-label="Page {{ currentPage - 2 }}">{{ currentPage - 2 }}</a>-->
-    <!--</li>-->
-    <!--<li ng-show="currentPage > 1">-->
-      <!--<a ng-click="setPage(currentPage - 1)" aria-label="Page {{ currentPage - 1 }}">{{ currentPage - 1 }}</a>-->
-    <!--</li>-->
-    <!--<li class="current"><span class="show-for-sr">You're on page </span>{{ currentPage }}</li>-->
-    <!--<li ng-show="(lastPage - currentPage) > 0">-->
-      <!--<a ng-click="setPage(currentPage + 1)" aria-label="Page {{ currentPage + 1 }}">{{ currentPage + 1 }}</a>-->
-    <!--</li>-->
-    <!--<li ng-show="(lastPage - currentPage) > 1">-->
-      <!--<a ng-click="setPage(currentPage + 2)" aria-label="Page {{ currentPage + 2 }}">{{ currentPage + 2 }}</a>-->
-    <!--</li>-->
-    <!--<li class="pagination-next">-->
-      <!--<a ng-click="setPage(currentPage + 1)" ng-class="{disabled: currentPage === lastPage}" aria-label="Next page">Next <span class="show-for-sr">page</span></a>-->
-    <!--</li>-->
-  <!--</ul>-->
-<!--</div>-->
-
 <div class="small-12 columns">
-  <ul class="pagination float-right" role="navigation" aria-label="Pagination">
+  <ul class="pagination" role="navigation" aria-label="Pagination">
     <li class="pagination-first">
       <a
         ng-click="setPage(1)"

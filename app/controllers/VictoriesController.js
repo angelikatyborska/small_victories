@@ -4,9 +4,11 @@ module.exports = function($scope, $route, $routeParams, $location, Victory) {
   var setSort = function() {
     if ($location.path().match(/latest/) !== null) {
       $scope.sort = '-created_at';
+      $scope.header = "Latest victories";
     }
     else if ($location.path().match(/best/) !== null) {
       $scope.sort = '-rating';
+      $scope.header = "Best victories";
     }
     else {
       $scope.sort = '-created_at';

@@ -1,7 +1,7 @@
 .votes {
   float: left;
-  margin-right: -zf-get-bp-val($grid-column-responsive-gutter, small);
-  width: rem-calc(50);
+  margin-right: rem-calc(15);
+  width: $votes-total-width - rem-calc(15);
   text-align: center;
   color: $dark-gray;
 
