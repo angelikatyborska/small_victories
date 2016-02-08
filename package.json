@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "build": "browserify app/app.js -o public/app.js | browserify assets/vendor.js -o public/vendor.js | node-sass --output-style compressed assets/scss/main.scss public/styles.css",
     "browserify-watch": "watchify app/app.js -o public/app.js -dv & watchify assets/vendor.js -o public/vendor.js",
     "node-sass-watch": "node-sass --watch --output-style compressed assets/scss/main.scss public/styles.css",
     "watch": "npm run browserify-watch & npm run node-sass-watch",
