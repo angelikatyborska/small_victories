@@ -15,4 +15,15 @@ module.exports = function($scope, $rootScope, $location, Auth) {
       $scope.errors = response.data.errors.full_messages;
     });
   };
+
+  $scope.handleDeleteAccountButtonClick = function() {
+    Auth.deleteAccount(
+      function success(response) {
+        $location.path('/');
+      },
+      function error(response) {
+        $scope.errors = response.data.errors.full_messages;
+      }
+    );
+  };
 };

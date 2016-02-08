@@ -37,6 +37,7 @@ module.exports = function($scope, $rootScope, $location, Auth, User) {
 
   $rootScope.$on('auth:login-success', function(ev, user) {
     $scope.setUserAfterAuth(user);
+    console.log('here')
     $scope.notifications = ['Signed in successfully.']
   });
 
@@ -53,5 +54,10 @@ module.exports = function($scope, $rootScope, $location, Auth, User) {
 
   $rootScope.$on('auth:validation-error', function(ev, user) {
     $scope.notifications = ['Something went wrong.'];
+  })
+
+  $rootScope.$on('auth:account-destroy-success', function(ev, user) {
+    $scope.currentUser = null;
+    $scope.notifications = ['You account was successfully destroyed.'];
   })
 };

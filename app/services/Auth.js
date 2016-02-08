@@ -43,14 +43,39 @@ module.exports = function($auth) {
       });
   }
 
-  function validate() {
-    $auth.validateUser();
+  function validate(successCallback, errorCallback) {
+    $auth.validateUser()
+      .then(function(response) {
+        if (typeof successCallback === 'function') {
+          successCallback(response);
+        }
+      })
+      .catch(function(response) {
+        if (typeof errorCallback === 'function') {
+          errorCallback(response);
+        }
+      });
+  }
+
+  function deleteAccount(successCallback, errorCallback) {
+    $auth.destroyAccount()
+      .then(function(response) {
+        if (typeof successCallback === 'function') {
+          successCallback(response);
+        }
+      })
+      .catch(function(response) {
+        if (typeof errorCallback === 'function') {
+          errorCallback(response);
+        }
+      });
   }
 
   return {
     login: login,
     logout: logout,
     register: register,
-    validate: validate
+    validate: validate,
+    deleteAccount: deleteAccount
   }
 };

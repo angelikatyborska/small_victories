@@ -7,7 +7,7 @@ app.config(['$routeProvider',
     $routeProvider
       .when('/', {
         templateUrl: 'app/partials/homepage.html',
-        controller: 'HomepageController'
+        controller: 'HomepageController',
       })
       .when('/latest/:page', {
         templateUrl: 'app/partials/victoriesTable.html',
@@ -38,6 +38,15 @@ app.config(['$routeProvider',
       .when('/victories/:id', {
         templateUrl: 'app/partials/victory.html',
         controller: 'VictoryController'
+      })
+      .when('/users/account', {
+        templateUrl: 'app/partials/userAccount.html',
+        controller: 'RegistrationsController',
+        resolve: {
+          auth: function($auth) {
+            return $auth.validateUser();
+          }
+        }
       })
       .when('/users/:nickname/:page', {
         templateUrl: 'app/partials/user.html',
