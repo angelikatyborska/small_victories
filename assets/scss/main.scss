@@ -1,9 +1,9 @@
-$fa-font-path: '../assets/fonts';
+$fa-font-path: 'fonts';
 
 @import 'foundation_settings',
 'node_modules/foundation-sites/scss/foundation',
 'node_modules/font-awesome/scss/font-awesome';
-;
+
 
 @include foundation-everything();
 

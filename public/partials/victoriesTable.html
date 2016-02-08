@@ -1,5 +1,5 @@
 <div ng-cloak="">
-  <div ng-include="'app/partials/notifications.html'"></div>
+  <div ng-include="'partials/notifications.html'"></div>
 
   <div ng-show="victories.length > 0" class="victories-table panel">
 
@@ -7,14 +7,14 @@
       <div class="small-12 medium-6 columns"  ng-show="header !== undefined">
         <h2 ng-bind="header"></h2>
       </div>
-      <div class="small-12 medium-6 columns" ng-include="'app/partials/victoriesTablePagination.html'"></div>
+      <div class="small-12 medium-6 columns" ng-include="'partials/victoriesTablePagination.html'"></div>
     </div>
 
     <div class="row" ng-repeat="victory in victories track by victory.id">
-      <div ng-include="'app/partials/victoriesTableVictory.html'"></div>
+      <div ng-include="'partials/victoriesTableVictory.html'"></div>
     </div>
 
-    <div class="row" ng-include="'app/partials/victoriesTablePagination.html'"></div>
+    <div class="row" ng-include="'partials/victoriesTablePagination.html'"></div>
 
   </div>
 </div>

@@ -4,8 +4,10 @@
   "description": "",
   "main": "app/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "watchify app/app.js -o build/app.js -dv | watchify assets/vendor.js -o build/vendor.js | node-sass --watch --output-style compressed assets/scss/main.scss build/styles.css"
+    "browserify-watch": "watchify app/app.js -o public/app.js -dv & watchify assets/vendor.js -o public/vendor.js",
+    "node-sass-watch": "node-sass --watch --output-style compressed assets/scss/main.scss public/styles.css",
+    "watch": "npm run browserify-watch & npm run node-sass-watch",
+    "dev": "node server.js & npm run watch"
   },
   "repository": {
     "type": "git",
@@ -39,6 +41,7 @@
     "angular-moment": "^1.0.0-beta.3",
     "angular-resource": "^1.4.9",
     "angular-route": "^1.4.9",
+    "express": "^4.13.4",
     "font-awesome": "^4.5.0",
     "foundation-sites": "^6.1.2",
     "jquery": "^2.2.0",

@@ -10,6 +10,6 @@ app.run(function(amMoment) {
 
 app.config(function($authProvider) {
   $authProvider.configure({
-    apiUrl: 'http://localhost:3000/api/v1'
+    apiUrl: 'http://small-victories-api.herokuapp.com/api/v1'
   });
 });

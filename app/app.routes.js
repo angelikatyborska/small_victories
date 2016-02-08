@@ -6,15 +6,15 @@ app.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'app/partials/homepage.html',
+        templateUrl: 'partials/homepage.html',
         controller: 'HomepageController',
       })
       .when('/latest/:page', {
-        templateUrl: 'app/partials/victoriesTable.html',
+        templateUrl: 'partials/victoriesTable.html',
         controller: 'VictoriesTableController'
       })
       .when('/best/:page', {
-        templateUrl: 'app/partials/victoriesTable.html',
+        templateUrl: 'partials/victoriesTable.html',
         controller: 'VictoriesTableController'
       })
       .when('/latest', {
@@ -24,23 +24,23 @@ app.config(['$routeProvider',
         redirectTo: 'best/1'
       })
       .when('/add', {
-        templateUrl: 'app/partials/victoryForm.html',
+        templateUrl: 'partials/victoryForm.html',
         controller: 'VictoryController'
       })
       .when('/sign_in', {
-        templateUrl: 'app/partials/loginForm.html',
+        templateUrl: 'partials/loginForm.html',
         controller: 'SessionsController'
       })
       .when('/sign_up', {
-        templateUrl: 'app/partials/registerForm.html',
+        templateUrl: 'partials/registerForm.html',
         controller: 'RegistrationsController'
       })
       .when('/victories/:id', {
-        templateUrl: 'app/partials/victory.html',
+        templateUrl: 'partials/victory.html',
         controller: 'VictoryController'
       })
       .when('/users/account', {
-        templateUrl: 'app/partials/userAccount.html',
+        templateUrl: 'partials/userAccount.html',
         controller: 'RegistrationsController',
         resolve: {
           auth: function($auth) {
@@ -49,7 +49,7 @@ app.config(['$routeProvider',
         }
       })
       .when('/users/:nickname/:page', {
-        templateUrl: 'app/partials/user.html',
+        templateUrl: 'partials/user.html',
         controller: 'UserController'
       })
       .when('/users/:nickname', {
@@ -60,3 +60,4 @@ app.config(['$routeProvider',
       });
   }
 ]);
+
