@@ -11,7 +11,7 @@ app.run(function(amMoment) {
 
 app.config(function($authProvider) {
   $authProvider.configure({
-    apiUrl: 'http://small-victories-api.herokuapp.com/api/v1'
+    apiUrl: 'https://small-victories-api.herokuapp.com/api/v1'
   });
 });
 },{"angular":25}],2:[function(require,module,exports){
@@ -544,21 +544,21 @@ module.exports = function($auth) {
 'use strict';
 
 module.exports = function($resource) {
-  return $resource('http://small-victories-api.herokuapp.com/api/v1/users/:nickname');
+  return $resource('https://small-victories-api.herokuapp.com/api/v1/users/:nickname');
 };
 
 },{}],14:[function(require,module,exports){
 'use strict';
 
 module.exports = function($resource) {
-  return $resource('http://small-victories-api.herokuapp.com/api/v1/victories/:id');
+  return $resource('https://small-victories-api.herokuapp.com/api/v1/victories/:id');
 };
 },{}],15:[function(require,module,exports){
 'use strict';
 
 module.exports = function($resource) {
   return $resource(
-    'http://small-victories-api.herokuapp.com/api/v1/victories/:victory_id/votes/:id',
+    'https://small-victories-api.herokuapp.com/api/v1/victories/:victory_id/votes/:id',
     { victory_id: '@vote.victory_id', id: '@vote.id' },
     { update: { method: 'PUT' } }
   );
