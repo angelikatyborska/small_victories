@@ -50,7 +50,7 @@
     "ng-token-auth": "0.0.24-beta1",
     "browserify": "^13.0.0",
     "browserify-shim": "^3.8.12",
-    "node-sass": "^3.4.2",
+    "node-sass": "^3.4.2"
   },
   "devDependencies": {
     "watchify": "^3.7.0"
