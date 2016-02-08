@@ -11,5 +11,6 @@ Sign in as `userX@example.com` with password `password`, where X is an integer b
 ### Setup
 If you want to run this app on your machine:
 
-1. `bin/fonts`
-2. `npm run dev`
+1. `bin/fonts.sh`
+2. `npm run build`
+3. `npm run dev`

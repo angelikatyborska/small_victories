@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "build": "browserify app/app.js -o public/app.js | browserify assets/vendor.js -o public/vendor.js | node-sass --output-style compressed assets/scss/main.scss public/styles.css",
+    "build": "browserify app/app.js -o public/app.js -v | browserify assets/vendor.js -o public/vendor.js -v | node-sass --output-style compressed assets/scss/main.scss public/styles.css",
     "browserify-watch": "watchify app/app.js -o public/app.js -dv & watchify assets/vendor.js -o public/vendor.js",
     "node-sass-watch": "node-sass --watch --output-style compressed assets/scss/main.scss public/styles.css",
     "watch": "npm run browserify-watch & npm run node-sass-watch",
@@ -47,12 +47,12 @@
     "foundation-sites": "^6.1.2",
     "jquery": "^2.2.0",
     "moment": "^2.11.1",
-    "ng-token-auth": "0.0.24-beta1"
-  },
-  "devDependencies": {
+    "ng-token-auth": "0.0.24-beta1",
     "browserify": "^13.0.0",
     "browserify-shim": "^3.8.12",
     "node-sass": "^3.4.2",
+  },
+  "devDependencies": {
     "watchify": "^3.7.0"
   }
 }
