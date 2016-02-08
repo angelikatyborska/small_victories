@@ -22,7 +22,7 @@ module.exports = function($scope, $rootScope, $location, Auth, User) {
   $scope.handleSignInButtonClick = function() {
     Auth.login($scope.loginForm,
       function success() {
-        $location.path('/');
+        $location.path('/')
       },
       function error(data) {
         if (data.reason === 'unauthorized') {
@@ -37,19 +37,21 @@ module.exports = function($scope, $rootScope, $location, Auth, User) {
 
   $rootScope.$on('auth:login-success', function(ev, user) {
     $scope.setUserAfterAuth(user);
-    $scope.notifications = ["Signed in successfully."]
+    $scope.notifications = ['Signed in successfully.']
   });
 
   $rootScope.$on('auth:logout-success', function(ev, user) {
     $scope.currentUser = null;
-    $scope.notifications = ["Signed out successfully."]
+    $scope.notifications = ['Signed out successfully.']
   });
 
   $rootScope.$on('auth:validation-success', function(ev, user) {
+    $scope.errors = [];
+    $scope.notifications = [];
     $scope.setUserAfterAuth(user);
   });
 
   $rootScope.$on('auth:validation-error', function(ev, user) {
-    console.log('error');
+    $scope.notifications = ['Something went wrong.'];
   })
 };

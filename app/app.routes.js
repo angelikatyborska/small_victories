@@ -31,9 +31,20 @@ app.config(['$routeProvider',
         templateUrl: 'app/partials/loginForm.html',
         controller: 'SessionsController'
       })
-      .when('/victory/:id', {
+      .when('/sign_up', {
+        templateUrl: 'app/partials/registerForm.html',
+        controller: 'RegistrationsController'
+      })
+      .when('/victories/:id', {
         templateUrl: 'app/partials/victory.html',
         controller: 'VictoryController'
+      })
+      .when('/users/:nickname/:page', {
+        templateUrl: 'app/partials/user.html',
+        controller: 'UserController'
+      })
+      .when('/users/:nickname', {
+        redirectTo: '/users/:nickname/1'
       })
       .otherwise({
         redirectTo: '/'

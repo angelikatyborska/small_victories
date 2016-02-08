@@ -47,7 +47,7 @@ module.exports = function($scope, $route, $routeParams, $location, Victory) {
   var setLastPage = function(headersGetter) {
     var headers = headersGetter();
     var totalCount = headers['x-total-count'];
-    $scope.lastPage = Math.ceil(totalCount / $scope.perPage);
+    $scope.lastPage = totalCount > 0 ? Math.ceil(totalCount / $scope.perPage) : 1;
   };
 
   var redirectToValidPage = function() {
@@ -69,9 +69,13 @@ module.exports = function($scope, $route, $routeParams, $location, Victory) {
   };
 
 
-  $scope.getVictories = function() {
-    $scope.victories = Victory.query(
-      { per_page: $scope.perPage, page: $scope.currentPage, sort: $scope.sort },
+  $scope.getVictories = function(userNickname) {
+    var params = { per_page: $scope.perPage, page: $scope.currentPage, sort: $scope.sort }
+      if (userNickname !== undefined) {
+      params.user = userNickname
+    }
+
+    $scope.victories = Victory.query(params,
       function success(data, headersGetter) {
         setLastPage(headersGetter);
         redirectToValidPage();
@@ -90,8 +94,8 @@ module.exports = function($scope, $route, $routeParams, $location, Victory) {
 
   $scope.perPage = $scope.perPage || 10;
   $scope.errors = [];
-  $scope.currentPage = parseInt($route.current.params.page);
+  $scope.currentPage = $scope.currentPage || parseInt($route.current.params.page);
 
   setSort();
-  $scope.getVictories();
+  $scope.getVictories($scope.userNickname || undefined);
 };

@@ -1,0 +1,35 @@
+<div class="ng-cloak small-12 columns end">
+
+  <div class="votes" ng-controller="VotesController">
+    <div ng-click="upvote(victory)" class="vote upvote" ng-class="{ voted: hasUpvoted(victory) }">
+      <span class="show-for-sr">Upvote</span>
+      <i class="fa fa-chevron-up"></i>
+    </div>
+    <div class="count" ng-bind="victory.rating"></div>
+    <div ng-click="downvote(victory)" class="vote downvote" ng-class="{ voted: hasDownvoted(victory) }">
+      <span class="show-for-sr">Downvote</span>
+      <i class="fa fa-chevron-down"></i>
+    </div>
+  </div>
+
+  <div class="victory" ng-controller="VictoryController">
+    <div class="victory-meta">
+      <small>
+        <a ng-href="#/victories/{{ victory.id }}" ng-bind="'#' + victory.id"></a>
+        <span class="nowrap">
+          submitted by
+          <a ng-href="#/users/{{ victory.user.nickname}}" ng-bind="victory.user.nickname"></a>
+        </span>
+        <span class="nowrap" am-time-ago="victory.created_at"></span>
+      </small>
+
+      <div ng-show="((victories === undefined) && (currentUser.id === victory.user.id))" class="float-right">
+        <button ng-click="handleDeleteButtonClick(victory)">
+          <i class="fa fa-trash"></i>
+        </button>
+      </div>
+    </div>
+    <div class="victory-body" ng-bind="victory.body"></div>
+  </div>
+
+</div>

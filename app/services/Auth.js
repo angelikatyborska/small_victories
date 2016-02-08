@@ -29,8 +29,28 @@ module.exports = function($auth) {
       });
   }
 
+  function register(registerForm, successCallback, errorCallback) {
+    $auth.submitRegistration(registerForm)
+      .then(function(response) {
+        if (typeof successCallback === 'function') {
+          successCallback(response);
+        }
+      })
+      .catch(function(response) {
+        if (typeof errorCallback === 'function') {
+          errorCallback(response);
+        }
+      });
+  }
+
+  function validate() {
+    $auth.validateUser();
+  }
+
   return {
     login: login,
-    logout: logout
+    logout: logout,
+    register: register,
+    validate: validate
   }
 };

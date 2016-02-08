@@ -1,50 +1,17 @@
-<div>
+<div ng-cloak="">
   <div ng-include="'app/partials/notifications.html'"></div>
 
   <div ng-show="victories.length > 0" class="victories-table panel">
 
     <div class="row victories-table-header">
       <div class="small-12 medium-6 columns"  ng-show="header !== undefined">
-        <h2>
-          {{ header }}
-        </h2>
+        <h2 ng-bind="header"></h2>
       </div>
       <div class="small-12 medium-6 columns" ng-include="'app/partials/victoriesTablePagination.html'"></div>
     </div>
 
     <div class="row" ng-repeat="victory in victories track by victory.id">
-      <div class="small-10 medium-11 large-10 xlarge-9 xxlarge-8 columns end">
-
-        <div class="votes" ng-controller="VotesController">
-          <div ng-click="upvote(victory)" class="vote upvote" ng-class="{ voted: hasUpvoted(victory) }">
-            <span class="show-for-sr">Upvote</span>
-            <i class="fa fa-chevron-up"></i>
-          </div>
-          <div class="count">
-            {{ victory.rating }}
-          </div>
-          <div ng-click="downvote(victory)" class="vote downvote" ng-class="{ voted: hasDownvoted(victory) }">
-            <span class="show-for-sr">Downvote</span>
-            <i class="fa fa-chevron-down"></i>
-          </div>
-        </div>
-
-        <div class="victory">
-          <div class="victory-meta">
-            <small>
-              <a ng-href="#/victory/{{ victory.id }}">#{{ victory.id }}</a>
-              <span class="nowrap">
-                submitted by
-                <a href="#">{{ victory.user.nickname }}</a>
-              </span>
-              <span class="nowrap" am-time-ago="victory.created_at"></span>
-            </small>
-          </div>
-          <div class="victory-body">
-            {{ victory.body }}
-          </div>
-        </div>
-      </div>
+      <div ng-include="'app/partials/victoriesTableVictory.html'"></div>
     </div>
 
     <div class="row" ng-include="'app/partials/victoriesTablePagination.html'"></div>

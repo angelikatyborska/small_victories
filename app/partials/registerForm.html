@@ -1,0 +1,46 @@
+<div class="form panel">
+  <form ng-submit="handleSignUpButtonClick()" role="form">
+
+    <div ng-show="errors.length > 0" class="errors row">
+      <div class="small-12 columns">
+        <div class="callout alert" ng-repeat="error in errors" ng-bind="error"></div>
+      </div>
+    </div>
+
+    <div class="row form-inputs">
+      <div class="small-12 columns">
+        <label>
+          Nickname
+          <input type="text" name="nickname" ng-model="registerForm.nickname" required="required"/>
+        </label>
+      </div>
+
+      <div class="small-12 columns">
+        <label>
+          Email
+          <input type="email" name="email" ng-model="registerForm.email" required="required"/>
+        </label>
+      </div>
+
+      <div class="small-12 columns">
+        <label>
+          Password
+          <input type="password" name="password" ng-model="registerForm.password" required="required"/>
+        </label>
+      </div>
+
+      <div class="small-12 columns">
+        <label>
+          Password Confirmation
+          <input type="password" name="password_confirmation" ng-model="registerForm.password_confirmation" required="required"/>
+        </label>
+      </div>
+    </div>
+
+    <div class="row form-actions">
+      <div class="small-12 columns">
+        <button type="submit" class="button primary">Sign up</button>
+      </div>
+    </div>
+  </form>
+</div>
