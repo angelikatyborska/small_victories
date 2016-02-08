@@ -28,6 +28,3 @@ Temporary Items
 node_modules
 build
 *.log
-
-public/**/*.js
-public/**/*.css
